@@ -1,0 +1,137 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="main.master.cs" Inherits="RentACar.main" %>
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta charset="UTF-8">
+    <title>Mr.Wills</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    <link rel="shortcut icon" href="#" />
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        body {
+            margin: 1rem auto 1rem auto;
+            font-family:Tahoma, Arial;
+            width: 63rem;
+            background-color: rgb(250, 250,250);
+        }
+        #topBar {
+            display: grid;
+            grid-template-columns: 5.5fr 1fr;
+            grid-template-rows: 9rem;
+        }
+        #logo {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 2rem;
+            align-items: center;
+            align-self: center;
+            margin-top: 1.8rem;
+        }
+        .logoMain {
+            font-size: 3.25rem;
+            font-weight: bold;
+            color: rgb(137, 105, 43);
+            justify-self: start;
+        }
+        .dot {
+            color: rgb(115, 179, 47);
+        }
+        .logoSub {
+            font-size: 1.15rem;
+            font-weight: normal;
+            color: rgb(115, 179, 47);
+        }
+        #shoppingCart {
+            align-self: center;
+        }
+        #cartContent {
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+            grid-template-rows: 2rem;
+            color: rgb(96, 96, 96);
+        }
+        .cartImage {
+            width: 3.5rem;
+            height: 3.5rem;
+            grid-row-end: span 2;
+            align-self: center;
+            margin-right: 1rem;
+        }
+        #LabelTotalReserves, #LabelTotalCost {
+            align-self: center;
+        }
+        #LabelTotalReserves {
+            font-weight: bold;
+        }
+        #mainMenu {
+            font-weight: bold;
+            color: rgb(96, 96, 96);
+        }
+        .menuLeft {
+            float: left;
+        }
+        .menuRight {
+            float: right;
+        }
+        a:link, a:visited {
+            color: rgb(96, 96, 96);
+            text-decoration: none;
+        }
+        a:hover {
+            color: rgb(137, 105, 43);
+        }
+        #footer {
+            font-size: small;
+            text-align: center;
+        }
+        @media (max-width: 1120px){
+            body {
+                margin: 1rem 3rem 1rem 3rem;
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="topBar">
+            <div id="logo">
+                <p class="logoMain">Mr<span class="dot">.</span>Wills</p>
+                <p class="logoSub">R&nbsp;&nbsp;E&nbsp;&nbsp;N&nbsp;&nbsp;T&nbsp;&nbsp;-&nbsp;&nbsp;A&nbsp;&nbsp;-&nbsp;&nbsp;C&nbsp;&nbsp;A&nbsp;&nbsp;R</p>
+            </div>
+            <div id="shoppingCart">
+                <div id="cartContent">
+                    <asp:ImageButton ID="ImageButtonCart" class="cartImage" runat="server" src="Resources/shoppingCart.png" alt="" postbackurl="~/shoppingcart.aspx" CausesValidation="False" />
+                    <p>
+                        <asp:Label ID="LabelTotalReserves" runat="server" Text="0"></asp:Label>
+                    </p>
+                    <p>
+                        <asp:Label ID="LabelTotalCost" runat="server" Text="0"></asp:Label>€
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="mainMenu">
+            <span class="menuLeft">
+                <a runat="server" href="~/vehicles.aspx">Vehicles</a>&nbsp;&nbsp;|&nbsp;&nbsp; 
+                <a runat="server" href="~/backoffice.aspx">BackOffice</a> 
+            </span>
+            <span class="menuRight">
+                <a runat="server" href="~/userarea.aspx">User Area</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a runat="server" href="~/login.aspx">Login</a>
+            </span>
+        </div>
+        <br />
+        <br />
+        <hr>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <hr>
+        <div id="footer">
+            2021 frΔnk
+        </div>
+    </form>
+</body>
+</html>
